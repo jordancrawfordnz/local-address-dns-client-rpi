@@ -1,3 +1,9 @@
+[View on Docker Hub](https://hub.docker.com/r/jordancrawford/local-address-dns-client-rpi/)
+
+[View on GitHub](https://github.com/jordancrawfordnz/arrow-client-docker/)
+
+---
+
 # Local Address DNS Client (RPi)
 
 ## What is this?
@@ -13,4 +19,4 @@ Build with ``docker build -t jordancrawford/local-address-dns-client-rpi .``.
 ## Running
 Run with ``docker run -d -p 3000:3000 --restart always --name local-address-dns-client --net=host jordancrawford/local-address-dns-client-rpi [interface]``
 
-Fill in interface with the network interface that you would like to get the IP address for. Use ``ifconfig`` to list all your avaliable interfaces.
+Fill in interface with the network interface that you would like to get the IP address for. Use ``ifconfig`` to list all your available interfaces.
