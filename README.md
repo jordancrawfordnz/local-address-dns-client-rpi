@@ -11,6 +11,6 @@ Your Pi must be accessable from the internet facing machine, such as via a VPN c
 Build with ``docker build -t jordancrawford/local-address-dns-client-rpi .``.
 
 ## Running
-Run with ``docker run -it -p 3000:3000 jordancrawford/local-address-dns-client-rpi [interface]``.
+Run with ``docker run -d -p 3000:3000 --name local-address-dns-client --net=host jordancrawford/local-address-dns-client-rpi [interface]``
 
 Fill in interface with the network interface that you would like to get the IP address for. Use ``ifconfig`` to list all your avaliable interfaces.
