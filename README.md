@@ -1,6 +1,6 @@
 [View on Docker Hub](https://hub.docker.com/r/jordancrawford/local-address-dns-client-rpi/)
 
-[View on GitHub](https://github.com/jordancrawfordnz/arrow-client-docker/)
+[View on GitHub](https://github.com/jordancrawfordnz/local-address-dns-client-rpi/)
 
 ---
 
