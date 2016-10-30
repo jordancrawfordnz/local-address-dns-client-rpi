@@ -12,6 +12,5 @@ RUN npm install
 # Setup the app
 COPY . /usr/src/app
 
-ENTRYPOINT ["node"]
-CMD ["client.js"]
+ENTRYPOINT ["node client.js"]
 EXPOSE 3000
