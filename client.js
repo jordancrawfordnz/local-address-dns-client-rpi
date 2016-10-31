@@ -22,6 +22,8 @@ var app = http.createServer(function(httpRequest, httpResult) {
     		ip : null
     	};
 
+    	console.log('IP address requested.');
+
     	// Include the IP address in the response.
 		if (!error) {
 	  		toReturn.ip = 
