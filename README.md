@@ -21,6 +21,9 @@ This is used by [local-address-dns](https://github.com/jordancrawfordnz/local-ad
 
 Your Pi must be able to be accessed from the internet facing machine, such as via a VPN connection. local-address-dns-client-rpi runs on your Pi to provide your IP address to local-address-dns. local-address-dns runs a DNS server that responds with the local address of the Pi.
 
+## Determining the interface to use
+Fill in interface with the network interface that you would like to get the IP address for (e.g.: ``eth0``). Use ``ifconfig`` to list all your available interfaces.
+
 ## Using Docker
 
 ### Building
@@ -29,9 +32,5 @@ Build with ``docker build -t jordancrawford/local-address-dns-client-rpi .``.
 ### Running
 Run with ``docker run -d -p 3000:3000 --restart always --name local-address-dns-client --net=host jordancrawford/local-address-dns-client-rpi [interface]``
 
-Fill in interface with the network interface that you would like to get the IP address for (e.g.: ``eth0``). Use ``ifconfig`` to list all your available interfaces.
-
 ## Using Directly
-Ensure NodeJS is installed on your system and run: ``node client.js [interface]``. The server is available at port 3000.
-
-Fill in interface with the network interface that you would like to get the IP address for (e.g.: ``eth0``). Use ``ifconfig`` to list all your available interfaces.
+Ensure NodeJS is installed on your system and run: ``node client [interface]``. The server is available at port 3000.
