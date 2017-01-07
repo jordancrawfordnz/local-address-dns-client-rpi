@@ -1,4 +1,4 @@
-var localip = require('local-ip');
+var os = require('os');
 var http = require('http');
 
 var args = process.argv.slice(2);
@@ -14,23 +14,29 @@ console.log('Local Address DNS Client server started on port ' + port);
 
 // Run a web server.
 var app = http.createServer(function(httpRequest, httpResult) {
-    httpResult.setHeader('Content-Type', 'application/json');
-    
-    // On an incoming request, get the local IP address of the chosen interface.
-    localip(interface, function(error, localIP) {
-    	var toReturn = {
-    		ip : null
-    	};
+	console.log('IP address requested.');
 
-    	console.log('IP address requested.');
+	// On an incoming request, get the local IP address of the chosen interface.
+	var toReturn = {
+		ip : getInterfaceIP(interface)
+	};
 
-    	// Include the IP address in the response.
-		if (!error) {
-	  		toReturn.ip = 
-	  		result = localIP;
-	  	}
-	  	
-	  	httpResult.end(JSON.stringify(toReturn));
-	});
+	httpResult.setHeader('Content-Type', 'application/json');
+	httpResult.end(JSON.stringify(toReturn));
 });
+
 app.listen(port);
+
+function getInterfaceIP(requestedInterface) {
+  var interfaces = os.networkInterfaces();
+  if (interfaces.hasOwnProperty(requestedInterface)) {
+    var interfaceDetails = interfaces[requestedInterface];
+    for (var i = 0; i < interfaceDetails.length; i++) {
+      var interface = interfaceDetails[i];
+      if (interface.family === 'IPv4') {
+        return interface.address;
+      }
+    }
+  }
+  return null;
+}

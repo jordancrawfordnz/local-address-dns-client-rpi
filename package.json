@@ -17,6 +17,5 @@
   },
   "homepage": "https://github.com/jordancrawfordnz/local-address-dns-client-rpi#readme",
   "dependencies": {
-    "local-ip": "^1.0.1"
   }
 }
